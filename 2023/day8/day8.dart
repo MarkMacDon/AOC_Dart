@@ -2,9 +2,6 @@ import '../utils.dart';
 
 var lines = getLines(dayNumber: 8);
 
-// Part 1 Done in 25:57
-// Part 2 Done in 4:32:00
-
 void main(List<String> args) async {
   String directions = lines[0];
   Map<String, Map<String, String>> nodeMap = {'L': {}, 'R': {}};
@@ -27,7 +24,7 @@ void main(List<String> args) async {
   List<String> locations = nodeMap['L']!.keys.toList();
   List<int> allLoops = [];
   for (String location in locations) {
-    var loopLength = getZLoops(location, nodeMap, directions);
+    int loopLength = getZLoopLength(location, nodeMap, directions);
     allLoops.add(loopLength);
   }
 
@@ -35,7 +32,7 @@ void main(List<String> args) async {
   print('Part 2 Answer: $ans');
 }
 
-int getZLoops(String location, Map nodeMap, String directions) {
+int getZLoopLength(String location, Map nodeMap, String directions) {
   bool isEndFound = false;
   int count = 0;
   List<int> zLoops = [];
