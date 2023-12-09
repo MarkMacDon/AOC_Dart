@@ -16,6 +16,13 @@ List<int> getNumsListFromString(String string) {
       .toList();
 }
 
+List<int> getNumsListFromStringKeepingNegatives(String string) {
+  return RegExp(r'-?\d+')
+      .allMatches(string)
+      .map<int>((e) => int.parse(e.group(0)!))
+      .toList();
+}
+
 List<String> getWordsListFromString(String string) {
   return RegExp(r'\w+')
       .allMatches(string)
